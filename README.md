@@ -411,8 +411,8 @@ Ingresos totales
 
 | Integrante                      | Código        |
 | ------------------------------- | ------------- |
-| Cristian Camilo Londoño Álvarez | Por completar |
-| [Nombre del compañero]          | Por completar |
+| Cristian Camilo Londoño Álvarez | 1115195149    |
+| Elisabet Arcila Marulanda       | Por completar |
 
 ---
 
@@ -475,6 +475,6 @@ El sistema se encuentra orientado a demostrar conocimientos de:
 Ingeniería de Sistemas y Computación
 Universidad del Quindío
 
-**[Nombre del compañero]**
+**Elisabet Arcila Marulanda**
 Ingeniería de Sistemas y Computación
 Universidad del Quindío
