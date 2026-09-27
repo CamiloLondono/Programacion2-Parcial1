@@ -11,8 +11,8 @@ public abstract class Curso {
     private EstadoCurso estado;
 
     public Curso(String codigo, String nombre, String idioma,
-                 String descripcion, int duracionMeses,
-                 double valorMensual, EstadoCurso estado) {
+            String descripcion, int duracionMeses,
+            double valorMensual, EstadoCurso estado) {
 
         this.codigo = codigo;
         this.nombre = nombre;
@@ -21,6 +21,11 @@ public abstract class Curso {
         this.duracionMeses = duracionMeses;
         this.valorMensual = valorMensual;
         this.estado = estado;
+    }
+
+    @Override
+    public String toString() {
+        return codigo + " - " + nombre + " (" + idioma + ")";
     }
 
     public abstract double calcularValor();

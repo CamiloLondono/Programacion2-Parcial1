@@ -22,6 +22,11 @@ public class ServicioAdicional {
         this.disponible = disponible;
     }
 
+    @Override
+    public String toString() {
+        return nombre + " (+$" + precio + ")";
+    }
+
     public boolean estaDisponible() {
         return disponible;
     }
@@ -43,7 +48,7 @@ public class ServicioAdicional {
     }
 
     public boolean isDisponible() {
-    return estaDisponible();
+        return estaDisponible();
     }
 
     public void setDisponible(boolean disponible) {

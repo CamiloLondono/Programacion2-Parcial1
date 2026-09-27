@@ -12,7 +12,7 @@ public class Estudiante {
     private final LocalDate fechaRegistro;
 
     public Estudiante(String documento, String nombreCompleto, String telefono,
-                      String correo, int edad) {
+            String correo, int edad) {
         this.documento = documento;
         this.nombreCompleto = nombreCompleto;
         this.telefono = telefono;

@@ -4,99 +4,228 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx/17" 
-      xmlns:fx="http://javafx.com/fxml/1" 
-      fx:controller="com.lenguajecafetero.controller.MainViewController" 
-      spacing="10" prefWidth="950" prefHeight="650">
+<VBox xmlns="http://javafx.com/javafx/17"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="com.lenguajecafetero.controller.MainViewController"
+    spacing="10" prefWidth="1050" prefHeight="700">
 
     <padding>
-        <Insets top="15" right="15" bottom="15" left="15"/>
+        <Insets top="15" right="15" bottom="15" left="15" />
     </padding>
 
-    <Label text="Sistema de Gestión - Academia Lenguaje Cafetero" 
-           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2C3E50;"/>
+    <Label text="Sistema de Gestión - Academia Lenguaje Cafetero"
+        style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2C3E50;" />
 
     <TabPane VBox.vgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE">
-        <!-- PESTAÑA ESTUDIANTES -->
-        <Tab text="Gestión de Estudiantes">
+
+        <!-- PESTAÑA 1: ESTUDIANTES -->
+        <Tab text="Estudiantes">
             <VBox spacing="10">
                 <padding>
-                    <Insets top="10" right="10" bottom="10" left="10"/>
+                    <Insets top="10" right="10" bottom="10" left="10" />
                 </padding>
-                
+
                 <GridPane hgap="10" vgap="10">
-                    <Label text="Documento:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-                    <TextField fx:id="txtEstDocumento" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                    <Label text="Documento:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <TextField fx:id="txtEstDocumento" GridPane.columnIndex="1"
+                        GridPane.rowIndex="0" />
 
-                    <Label text="Nombre Completo:" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
-                    <TextField fx:id="txtEstNombre" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+                    <Label text="Nombre Completo:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                    <TextField fx:id="txtEstNombre" GridPane.columnIndex="3" GridPane.rowIndex="0" />
 
-                    <Label text="Teléfono:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-                    <TextField fx:id="txtEstTelefono" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                    <Label text="Teléfono:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <TextField fx:id="txtEstTelefono" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                    <Label text="Correo:" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
-                    <TextField fx:id="txtEstCorreo" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+                    <Label text="Correo:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                    <TextField fx:id="txtEstCorreo" GridPane.columnIndex="3" GridPane.rowIndex="1" />
 
-                    <Label text="Edad:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-                    <TextField fx:id="txtEstEdad" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                    <Label text="Edad:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <TextField fx:id="txtEstEdad" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-                    <Button text="Registrar Estudiante" onAction="#handleRegistrarEstudiante" 
-                            style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-font-weight: bold;" 
-                            GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+                    <Button text="Registrar Estudiante" onAction="#handleRegistrarEstudiante"
+                        style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-font-weight: bold;"
+                        GridPane.columnIndex="3" GridPane.rowIndex="2" />
                 </GridPane>
+
+                <Separator />
+
+                <!-- Búsqueda de Estudiante -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Buscar Estudiante por Documento:" style="-fx-font-weight: bold;" />
+                    <TextField fx:id="txtBuscarDocumento" promptText="Ingrese Documento" />
+                    <Button text="Buscar" onAction="#handleBuscarEstudiante"
+                        style="-fx-background-color: #34495E; -fx-text-fill: white;" />
+                    <Button text="Mostrar Todos" onAction="#handleMostrarTodosEstudiantes" />
+                </HBox>
 
                 <TableView fx:id="tblEstudiantes" VBox.vgrow="ALWAYS">
                     <columns>
-                        <TableColumn fx:id="colEstDocumento" text="Documento" prefWidth="150"/>
-                        <TableColumn fx:id="colEstNombre" text="Nombre Completo" prefWidth="250"/>
-                        <TableColumn fx:id="colEstTelefono" text="Teléfono" prefWidth="150"/>
-                        <TableColumn fx:id="colEstCorreo" text="Correo" prefWidth="220"/>
+                        <TableColumn fx:id="colEstDocumento" text="Documento" prefWidth="150" />
+                        <TableColumn fx:id="colEstNombre" text="Nombre Completo" prefWidth="250" />
+                        <TableColumn fx:id="colEstTelefono" text="Teléfono" prefWidth="150" />
+                        <TableColumn fx:id="colEstCorreo" text="Correo" prefWidth="220" />
                     </columns>
                 </TableView>
             </VBox>
         </Tab>
 
-        <!-- PESTAÑA CURSOS -->
-        <Tab text="Cursos (Factory Pattern)">
+        <!-- PESTAÑA 2: CURSOS -->
+        <Tab text="Cursos">
             <VBox spacing="10">
                 <padding>
-                    <Insets top="10" right="10" bottom="10" left="10"/>
+                    <Insets top="10" right="10" bottom="10" left="10" />
                 </padding>
 
                 <GridPane hgap="10" vgap="10">
-                    <Label text="Código:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-                    <TextField fx:id="txtCurCodigo" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                    <Label text="Código:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <TextField fx:id="txtCurCodigo" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-                    <Label text="Nombre Curso:" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
-                    <TextField fx:id="txtCurNombre" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+                    <Label text="Nombre Curso:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                    <TextField fx:id="txtCurNombre" GridPane.columnIndex="3" GridPane.rowIndex="0" />
 
-                    <Label text="Idioma:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-                    <TextField fx:id="txtCurIdioma" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                    <Label text="Idioma:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <TextField fx:id="txtCurIdioma" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                    <Label text="Tipo Curso:" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
-                    <ComboBox fx:id="cbCurTipo" prefWidth="180" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+                    <Label text="Tipo Curso:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                    <ComboBox fx:id="cbCurTipo" prefWidth="180" GridPane.columnIndex="3"
+                        GridPane.rowIndex="1" />
 
-                    <Label text="Duración (meses):" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-                    <TextField fx:id="txtCurDuracion" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                    <Label text="Estado:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <ComboBox fx:id="cbCurEstado" prefWidth="180" GridPane.columnIndex="1"
+                        GridPane.rowIndex="2" />
 
-                    <Label text="Valor Mensual ($):" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
-                    <TextField fx:id="txtCurValor" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+                    <Label text="Duración (meses):" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                    <TextField fx:id="txtCurDuracion" GridPane.columnIndex="3" GridPane.rowIndex="2" />
 
-                    <Button text="Crear Curso (Factory)" onAction="#handleRegistrarCurso" 
-                            style="-fx-background-color: #2980B9; -fx-text-fill: white; -fx-font-weight: bold;" 
-                            GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+                    <Label text="Valor Mensual ($):" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <TextField fx:id="txtCurValor" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                    <Label text="Nivel (Personalizado):" GridPane.columnIndex="2"
+                        GridPane.rowIndex="3" />
+                    <ComboBox fx:id="cbCurNivel" prefWidth="180" GridPane.columnIndex="3"
+                        GridPane.rowIndex="3" />
+
+                    <Label text="Sesiones Prof.:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                    <TextField fx:id="txtCurSesiones" promptText="Solo para personalizado"
+                        GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                    <Label text="Objetivos:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                    <TextField fx:id="txtCurObjetivos" promptText="Objetivos del curso"
+                        GridPane.columnIndex="3" GridPane.rowIndex="4" />
+
+                    <Button text="Crear Curso (Factory)" onAction="#handleRegistrarCurso"
+                        style="-fx-background-color: #2980B9; -fx-text-fill: white; -fx-font-weight: bold;"
+                        GridPane.columnIndex="3" GridPane.rowIndex="5" />
                 </GridPane>
 
                 <TableView fx:id="tblCursos" VBox.vgrow="ALWAYS">
                     <columns>
-                        <TableColumn fx:id="colCurCodigo" text="Código" prefWidth="120"/>
-                        <TableColumn fx:id="colCurNombre" text="Nombre" prefWidth="250"/>
-                        <TableColumn fx:id="colCurIdioma" text="Idioma" prefWidth="150"/>
-                        <TableColumn fx:id="colCurTipo" text="Tipo (Clase)" prefWidth="150"/>
-                        <TableColumn fx:id="colCurValor" text="Valor Mensual" prefWidth="150"/>
+                        <TableColumn fx:id="colCurCodigo" text="Código" prefWidth="100" />
+                        <TableColumn fx:id="colCurNombre" text="Nombre" prefWidth="200" />
+                        <TableColumn fx:id="colCurIdioma" text="Idioma" prefWidth="120" />
+                        <TableColumn fx:id="colCurTipo" text="Tipo" prefWidth="130" />
+                        <TableColumn fx:id="colCurEstado" text="Estado" prefWidth="120" />
+                        <TableColumn fx:id="colCurValor" text="Valor Mensual" prefWidth="130" />
                     </columns>
                 </TableView>
             </VBox>
         </Tab>
+
+        <!-- PESTAÑA 3: PROFESORES -->
+        <Tab text="Profesores">
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10" />
+                </padding>
+
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Identificación:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <TextField fx:id="txtProfId" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <Label text="Nombre Completo:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                    <TextField fx:id="txtProfNombre" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+                    <Label text="Idioma Enseñado:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <TextField fx:id="txtProfIdioma" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <Label text="Teléfono:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                    <TextField fx:id="txtProfTelefono" GridPane.columnIndex="3"
+                        GridPane.rowIndex="1" />
+
+                    <Label text="Tarifa por Sesión ($):" GridPane.columnIndex="0"
+                        GridPane.rowIndex="2" />
+                    <TextField fx:id="txtProfTarifa" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    <Button text="Registrar Profesor" onAction="#handleRegistrarProfesor"
+                        style="-fx-background-color: #D35400; -fx-text-fill: white; -fx-font-weight: bold;"
+                        GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                </GridPane>
+
+                <TableView fx:id="tblProfesores" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colProfId" text="Identificación" prefWidth="150" />
+                        <TableColumn fx:id="colProfNombre" text="Nombre Completo" prefWidth="250" />
+                        <TableColumn fx:id="colProfIdioma" text="Idioma" prefWidth="180" />
+                        <TableColumn fx:id="colProfTarifa" text="Tarifa / Sesión ($)"
+                            prefWidth="150" />
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+        <!-- PESTAÑA 4: MATRÍCULAS Y SERVICIOS -->
+        <Tab text="Matrículas y Servicios">
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10" />
+                </padding>
+
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Estudiante:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <ComboBox fx:id="cbMatEstudiante" prefWidth="250" GridPane.columnIndex="1"
+                        GridPane.rowIndex="0" />
+
+                    <Label text="Curso:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                    <ComboBox fx:id="cbMatCurso" prefWidth="250" GridPane.columnIndex="3"
+                        GridPane.rowIndex="0" />
+
+                    <Label text="Profesor (Opcional):" GridPane.columnIndex="0"
+                        GridPane.rowIndex="1" />
+                    <ComboBox fx:id="cbMatProfesor" prefWidth="250" GridPane.columnIndex="1"
+                        GridPane.rowIndex="1" />
+
+                    <Label text="Servicio Adicional:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                    <ComboBox fx:id="cbMatServicio" prefWidth="250" GridPane.columnIndex="3"
+                        GridPane.rowIndex="1" />
+
+                    <Label text="Descuento (%):" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <TextField fx:id="txtMatDescuento" promptText="0.0" GridPane.columnIndex="1"
+                        GridPane.rowIndex="2" />
+
+                    <Button text="Procesar Matrícula" onAction="#handleRegistrarMatricula"
+                        style="-fx-background-color: #8E44AD; -fx-text-fill: white; -fx-font-weight: bold;"
+                        GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                </GridPane>
+
+                <Separator />
+
+                <HBox spacing="20" alignment="CENTER_LEFT">
+                    <Label text="Total Ingresos Academia:"
+                        style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+                    <Label fx:id="lblTotalIngresos" text="\$0.0"
+                        style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #27AE60;" />
+                </HBox>
+
+                <TableView fx:id="tblMatriculas" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colMatEstudiante" text="Estudiante" prefWidth="220" />
+                        <TableColumn fx:id="colMatCurso" text="Curso" prefWidth="220" />
+                        <TableColumn fx:id="colMatFecha" text="Fecha Matrícula" prefWidth="150" />
+                        <TableColumn fx:id="colMatTotal" text="Valor Total ($)" prefWidth="150" />
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
     </TabPane>
 </VBox>
