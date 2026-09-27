@@ -43,7 +43,7 @@ public class ServicioAdicional {
     }
 
     public boolean isDisponible() {
-        return disponible;
+    return estaDisponible();
     }
 
     public void setDisponible(boolean disponible) {

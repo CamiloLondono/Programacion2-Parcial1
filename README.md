@@ -409,10 +409,10 @@ Ingresos totales
 
 ## 👥 Integrantes
 
-| Integrante                      | Código        |
-| ------------------------------- | ------------- |
-| Cristian Camilo Londoño Álvarez | 1115195149    |
-| Elisabet Arcila Marulanda       | Por completar |
+| Integrante                      | Código     |
+| ------------------------------- |------------|
+| Cristian Camilo Londoño Álvarez | 1115195149 |
+| Elisabet Arcila Marulanda       | 1094883329 |
 
 ---
 
